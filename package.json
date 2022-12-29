@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "formidable": "^2.1.1",
     "mysql": "^2.18.1",
     "node": "^19.3.0",
+    "qs": "^6.11.0",
     "sql": "^0.78.0"
   }
 }
