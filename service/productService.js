@@ -62,5 +62,30 @@ class ProductService {
             })
         })
     }
+    static deleteProduct(id) {
+        let connection = Connection.getConnection();
+        return new Promise((resolve, reject) => {
+            connection.query(`DELETE FROM products WHERE id = ${id}`,(err) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    console.log('Xoa Thanh Cong !!!')
+                }
+            })
+        })
+    }
+    static searchProduct(search) {
+        let connection = Connection.getConnection();
+        let sql = `SELECT * FROM products  WHERE name LIKE '%${search}%'`
+        return new Promise((resolve, reject) => {
+            connection.query(sql,(err, products) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(products);
+                }
+            })
+        })
+    }
 }
 module.exports = ProductService;
